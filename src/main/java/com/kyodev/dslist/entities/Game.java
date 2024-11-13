@@ -11,28 +11,32 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto Increment
     private Long id;
     private String title;
+    private Double score;
     private String genre;
     @Column(name = "game_year")
     private Integer year;
-    private String platform;
+    private String platforms;
     private String imgUrl;
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game(){}
 
-    public Game(Long id, String title, Integer year, String genre, String platform, String imgUrl, String shortDescription, String longDescription) {
+    public Game(Long id, String title, Double score, Integer year, String genre, String platforms, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
+        this.score = score;
         this.year = year;
         this.genre = genre;
-        this.platform = platform;
+        this.platforms = platforms;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
     }
 
-    public Long getId() {
+       public Long getId() {
         return id;
     }
 
@@ -46,6 +50,14 @@ public class Game {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public Integer getYear() {
@@ -64,12 +76,12 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getPlatform() {
-        return platform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setPlatform(String platforms) {
+        this.platforms = platforms;
     }
 
     public String getImgUrl() {
